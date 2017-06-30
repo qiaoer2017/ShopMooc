@@ -1,5 +1,4 @@
 <?php
-require_once "../include.php";
 /*$link = connect();
 $sql = "SELECT * from `mooc_admin`";
 $totalRows = getResultNum($link, $sql);
@@ -35,7 +34,7 @@ function showPage($page, $totalPage, $where = null, $sep = "&nbsp;")
         if ($page == $i) {
             $p .= "[{$i}]{$sep}";
         } else {
-            $p .= "<a href='{$url}?page={$i}'>{$i}</a>{$sep}";
+            $p .= "<a href='{$url}?page={$i}{$where}'>{$i}</a>{$sep}";
         }
     }
     return $str . "<br>" . $index . $sep . $prev . $sep . $p . $sep . $next . $sep . $last;

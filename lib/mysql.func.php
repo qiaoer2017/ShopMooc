@@ -28,8 +28,12 @@ function update($link, $table, $array, $where = null)
         $str .= $sep . $key . "='" . $val . "'";
     }
     $sql = "UPDATE {$table} SET {$str}" . ($where == null ? null : " where " . $where);
-    mysqli_query($link, $sql);
-    return mysqli_affected_rows($link);
+    $result = mysqli_query($link, $sql);
+    if ($result) {
+        return mysqli_affected_rows($link);
+    } else {
+        return false;
+    }
 }
 
 function delete($link, $table, $where = null)
@@ -64,5 +68,9 @@ function getResultNum($link, $sql)
     return mysqli_num_rows($result);
 }
 
+function getInsertId($link)
+{
+    return mysqli_insert_id($link);
+}
 
 

@@ -68,3 +68,4 @@ function delAdmin($link, $id)
     }
     return $mes;
 }
+
